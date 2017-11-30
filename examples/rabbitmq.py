@@ -70,26 +70,3 @@ class RabbitmqQueue:
         except:
             self.close()
         
-
-"""
-credentials = pika.PlainCredentials('nls', 'nls72NSN')
-parameters = pika.ConnectionParameters('192.168.122.63', 5672, '/', credentials)
-connection = pika.BlockingConnection( parameters )
-channel = connection.channel()
-channel.queue_declare(queue='hello')
-channel.basic_publish(exchange='',
-                      routing_key='hello',
-                      body='Hello World!')
-print(" [x] Sent 'Hello World!'")
-
-def callback(ch, method, properties, body):
-    print body
-
-queue = RabbitmqQueue( [("192.168.122.63", 5672), ("192.168.122.20", 5672)], "nls", "nls72NSN", "hello")
-if queue.publish( "this is a test"):
-    print "succeed to publish"
-else:
-    print "fail to publish"
-
-queue.consume( callback )
-"""
